@@ -1,0 +1,367 @@
+<!doctype html>
+<!--
+  Zeyond Games · kurumsal site
+  Tek sayfa: Giriş, Oyunlar, Hakkımızda, İletişim.
+
+  İKİ DİL NASIL ÇALIŞIR
+  Her metin iki kez yazılır, yan yana durur:
+    <p lang="tr">Türkçe metin</p>
+    <p lang="en">English text</p>
+  Sayfa hangi dildeyse diğeri gizlenir (style.css · DİL). Bir metni
+  değiştirirken iki dildeki karşılığını da güncellemeyi unutmayın.
+  Marka adları (ZEYOND GAMES, HEXAFIELD) iki dilde aynı olduğu için
+  lang almaz, her zaman görünür.
+
+  BÜYÜK HARF NOTU
+  Etiket ve düğme yazıları CSS ile büyük harfe çevrilir. Türkçe modda
+  tarayıcı "i" harfini "İ" yapar; bu yüzden büyük harfle görünen
+  İngilizce kelimeleri (ACTION RPG, LINKEDIN gibi) doğrudan büyük harfle
+  yazın, yoksa "ACTİON" gibi görünür.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zeyond Games · Video Game Studio</title>
+  <meta name="description" content="Zeyond Games is an independent video game studio building systems-driven tactical action games. Now in closed test: Hexafield.">
+  <meta name="theme-color" content="#05070a">
+  <link rel="canonical" href="https://zeyondgames.com/">
+
+  <!-- Bağlantı paylaşılınca görünen kart (WhatsApp, X, LinkedIn vb.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zeyond Games">
+  <meta property="og:title" content="Zeyond Games · Video Game Studio">
+  <meta property="og:description" content="Independent video game studio. Now in closed test: Hexafield.">
+  <meta property="og:url" content="https://zeyondgames.com/">
+  <meta property="og:image" content="https://zeyondgames.com/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+  <!-- Başlıklar Chakra Petch, küçük etiketler JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Dil, sayfa çizilmeden önce seçilir: önce kayıtlı tercih, yoksa
+       tarayıcının dili. Böylece sayfa yanlış dilde açılıp sonra değişmez. -->
+  <script>
+    (function () {
+      var d = document.documentElement, dil;
+      try { dil = localStorage.getItem("zeyond-dil"); } catch (e) {}
+      if (dil !== "tr" && dil !== "en") dil = /^tr\b/i.test(navigator.language || "") ? "tr" : "en";
+      d.lang = dil;
+      d.classList.add("js");
+    })();
+  </script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <a class="atla" href="#icerik"><span lang="tr">İçeriğe geç</span><span lang="en">Skip to content</span></a>
+
+  <!--═══════════════  ÜST ÇUBUK  ═══════════════-->
+  <header class="cubuk" id="cubuk">
+    <a class="cubuk-logo" href="#giris" aria-label="Zeyond Games">
+      <img src="img/logo.png" alt="" width="40" height="40">
+      <span>ZEYOND GAMES</span>
+    </a>
+
+    <nav class="baglar" id="baglar" aria-label="Menu">
+      <a href="#oyunlar" data-dilim="1"><span lang="tr">Oyunlar</span><span lang="en">Games</span></a>
+      <a href="#hakkimizda" data-dilim="2"><span lang="tr">Hakkımızda</span><span lang="en">About</span></a>
+      <a href="#iletisim" data-dilim="3"><span lang="tr">İletişim</span><span lang="en">Contact</span></a>
+    </nav>
+
+    <div class="cubuk-araclar">
+      <button class="dil-dugme" id="dilDugme" type="button"
+              data-label-tr="Dili İngilizceye çevir" data-label-en="Switch language to Turkish">
+        <span data-dil="tr">TR</span><span class="ayrac">/</span><span data-dil="en">EN</span>
+      </button>
+      <button class="menu-dugme" id="menuDugme" type="button" aria-expanded="false" aria-controls="baglar"
+              data-label-tr="Menüyü aç" data-label-en="Open menu"><span></span></button>
+    </div>
+  </header>
+
+  <main id="icerik">
+
+    <!--═══════════════  GİRİŞ (HERO)  ═══════════════-->
+    <section class="giris" id="giris">
+      <!-- Arkada dönen altıgen halkalar ve ortada tek hücresi yanan petek.
+           Yalnızca süs. -->
+      <div class="giris-sahne" aria-hidden="true">
+        <svg viewBox="0 0 600 600">
+          <defs><polygon id="hucre" points="31.2,18 0,36 -31.2,18 -31.2,-18 0,-36 31.2,-18"/></defs>
+          <g class="don">
+            <circle cx="300" cy="300" r="268" stroke-dasharray="2 12"/>
+            <polygon points="542.5,440 300,580 57.5,440 57.5,160 300,20 542.5,160"/>
+          </g>
+          <g class="don ters">
+            <polygon class="vurgu" stroke-dasharray="70 26" points="490.5,410 300,520 109.5,410 109.5,190 300,80 490.5,190"/>
+          </g>
+          <polygon class="soguk" stroke-dasharray="4 8" points="429.9,375 300,450 170.1,375 170.1,225 300,150 429.9,225"/>
+          <path d="M300 0v16M300 584v16M0 300h16M584 300h16"/>
+          <g class="petek">
+            <use href="#hucre" x="369.3" y="300"/>
+            <use href="#hucre" x="334.6" y="360"/>
+            <use href="#hucre" x="265.4" y="360"/>
+            <use href="#hucre" x="230.7" y="300"/>
+            <use href="#hucre" x="265.4" y="240"/>
+            <use href="#hucre" x="334.6" y="240"/>
+            <use href="#hucre" x="300" y="300" class="anomali"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="giris-orta">
+        <p class="giris-ust">
+          <span lang="tr">Bağımsız Oyun Stüdyosu</span>
+          <span lang="en">Independent Game Studio</span>
+        </p>
+        <h1>ZEYOND GAMES</h1>
+        <p class="slogan">VIDEO GAME STUDIO</p>
+        <p class="giris-metin" lang="tr">Robotlar, prosedürel arenalar ve taktik çatışmalar. Mobil ve PC için sistem odaklı aksiyon oyunları geliştiriyoruz.</p>
+        <p class="giris-metin" lang="en">Robots, procedural arenas and tactical combat. We build systems-driven action games for mobile and PC.</p>
+        <div class="eylemler">
+          <a class="eylem birincil" href="#oyunlar"><span lang="tr">Oyunlarımız</span><span lang="en">Our Games</span></a>
+          <a class="eylem ikincil" href="#iletisim"><span lang="tr">Bize yazın</span><span lang="en">Contact us</span></a>
+        </div>
+      </div>
+
+      <a class="giris-durum" href="#hexafield">
+        <span class="nabiz" aria-hidden="true"></span>
+        <span lang="tr">Şu an kapalı testte:</span><span lang="en">Now in closed test:</span>
+        <strong>HEXAFIELD</strong>
+      </a>
+    </section>
+
+
+    <!--═══════════════  01 · OYUNLAR  ═══════════════-->
+    <section class="bolum" id="oyunlar">
+      <div class="kap">
+        <header class="bolum-bas belir">
+          <p class="num"><span lang="tr">01 · Oyunlar</span><span lang="en">01 · Games</span></p>
+          <h2><span lang="tr">Oyunlarımız</span><span lang="en">Our Games</span></h2>
+        </header>
+
+        <!-- Oyun kartı: solda bilgiler, sağda üç ekran görüntüsü. Yeni bir
+             oyun eklemek için bu <article>'ı kopyalayıp içini değiştirin. -->
+        <article class="oyun" id="hexafield">
+          <div class="oyun-bilgi belir">
+            <p class="durum">
+              <span class="nabiz" aria-hidden="true"></span>
+              <span lang="tr">Kapalı test · ANDROID</span><span lang="en">Closed test · Android</span>
+            </p>
+            <h3 class="oyun-ad">HEXAFIELD</h3>
+            <p class="oyun-tur"><span lang="tr">Robotik Shooter · Aksiyon RPG</span><span lang="en">Robotic Shooter · Action RPG</span></p>
+
+            <p lang="tr">Hexafield, her girişte yeniden üretilen çok katmanlı bir hex arenada geçen, taktik savaş ve keşif odaklı bir roguelite. Savaş sisinin ardındaki düşmanları tespit et, çimenlere gizlen, lootbox'ları yağmala ve asansörlerle katlar arasında ilerleyerek çıkışı bul.</p>
+            <p lang="en">Hexafield is a tactical roguelite set in a multi-layered hex arena that is rebuilt on every run. Spot enemies through the fog of war, hide in tall grass, loot crates and ride elevators between layers to find the exit.</p>
+            <p lang="tr">Assault, Assassin, Recon, Tank ve Support: beş robot sınıfının her birinin kendine özgü silahı ve taktiği var. Amaç görevi tamamlamak, hayatta kalmak ve simülasyondan kaçmak.</p>
+            <p lang="en">Assault, Assassin, Recon, Tank and Support: each of the five robot classes has its own weapons and tactics. Your goal is to complete the mission, survive and escape the simulation.</p>
+
+            <ul class="cipler">
+              <li>ACTION RPG</li><li>ROGUELITE</li><li>TOP-DOWN 3D</li><li>PROCEDURAL</li><li>TACTICAL</li><li>SCI-FI</li>
+            </ul>
+
+            <dl class="kunye">
+              <div>
+                <dt><span lang="tr">Platform</span><span lang="en">Platform</span></dt>
+                <dd><span lang="tr">Android · iOS ve Steam planlanıyor</span><span lang="en">Android · iOS &amp; Steam planned</span></dd>
+              </div>
+              <div>
+                <dt><span lang="tr">Motor</span><span lang="en">Engine</span></dt>
+                <dd>Unity</dd>
+              </div>
+              <div>
+                <dt><span lang="tr">Durum</span><span lang="en">Status</span></dt>
+                <dd><span lang="tr">Kapalı alfa</span><span lang="en">Closed alpha</span></dd>
+              </div>
+            </dl>
+
+            <div class="eylemler">
+              <button class="eylem birincil" type="button" data-ac="testPencere">
+                <span lang="tr">Kapalı teste katıl</span><span lang="en">Join the closed test</span>
+              </button>
+              <a class="eylem ikincil" href="https://youtu.be/mQQ7BAc7_N4" target="_blank" rel="noopener">
+                <span lang="tr">Fragmanı izle</span><span lang="en">Watch the trailer</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="oyun-ekranlar belir" aria-label="Hexafield">
+            <img src="img/hexafield/ekran-2.jpg" width="540" height="955" loading="lazy" alt=""
+                 data-alt-tr="Hexafield: altıgen asansörde bekleyen robot" data-alt-en="Hexafield: a robot waiting on a hex elevator">
+            <img src="img/hexafield/ekran-3.jpg" width="540" height="960" loading="lazy" alt=""
+                 data-alt-tr="Hexafield: çimenlerin arasında çatışma" data-alt-en="Hexafield: a firefight among the grass">
+            <img src="img/hexafield/ekran-1.jpg" width="540" height="955" loading="lazy" alt=""
+                 data-alt-tr="Hexafield: arenada düşman robotlar" data-alt-en="Hexafield: enemy robots in the arena">
+          </div>
+        </article>
+
+        <!-- Fragman: önce yalnızca kapak görseli yüklenir; tıklanınca YouTube
+             oynatıcısı yerine gelir (js/main.js). Sayfa böylece hızlı açılır. -->
+        <div class="video belir">
+          <button class="video-kapak" type="button" data-video="mQQ7BAc7_N4"
+                  data-label-tr="Hexafield fragmanını oynat" data-label-en="Play the Hexafield trailer">
+            <img src="img/hexafield/video-kapak.jpg" width="1280" height="720" loading="lazy" alt="">
+            <span class="video-oynat" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+        </div>
+
+        <!-- Stüdyonun kendi geliştirdiği araç: WorldBuilder -->
+        <div class="arac">
+          <figure class="arac-gorsel belir">
+            <img src="img/hexafield/worldbuilder.jpg" width="1400" height="801" loading="lazy" alt=""
+                 data-alt-tr="Unity içinde WorldBuilder seviye editörü" data-alt-en="The WorldBuilder level editor inside Unity">
+          </figure>
+          <div class="arac-metin belir">
+            <p class="num"><span lang="tr">Geliştirme</span><span lang="en">Development</span></p>
+            <h3><span lang="tr">Kendi araçlarımızı yazıyoruz</span><span lang="en">We build our own tools</span></h3>
+            <p lang="tr">Hexafield'ın arenaları, Unity içinde kendi geliştirdiğimiz WorldBuilder editörüyle hazırlanıyor. Hex karoları, botları ve yapıları oyunun içinden yerleştirip anında test ediyoruz.</p>
+            <p lang="en">Hexafield's arenas are made with WorldBuilder, a level editor we built inside Unity. We place hex tiles, bots and structures from within the game and test them instantly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!--═══════════════  02 · HAKKIMIZDA  ═══════════════-->
+    <section class="bolum" id="hakkimizda">
+      <div class="kap">
+        <header class="bolum-bas belir">
+          <p class="num"><span lang="tr">02 · Stüdyo</span><span lang="en">02 · Studio</span></p>
+          <h2><span lang="tr">Hakkımızda</span><span lang="en">About Us</span></h2>
+        </header>
+
+        <div class="hakkinda belir">
+          <p class="giris-paragraf" lang="tr">Zeyond Games, oyun geliştirme ile oyun sanatını bir araya getiren küçük ve bağımsız bir oyun stüdyosu.</p>
+          <p class="giris-paragraf" lang="en">Zeyond Games is a small, independent game studio that brings game development and game art together.</p>
+          <p lang="tr">Oyunlarımızı Unity ile geliştiriyor, ihtiyaç duyduğumuz araçları kendimiz yazıyoruz. Küçük bir ekip olmayı bir sınırlama olarak değil; hızlı karar almanın ve fikirleri kısa sürede oynanabilir prototiplere çevirmenin yolu olarak görüyoruz.</p>
+          <p lang="en">We build our games in Unity and write the tools we need ourselves. We don't see being a small team as a limitation; it's how we make decisions fast and turn ideas into playable prototypes quickly.</p>
+        </div>
+
+        <ul class="degerler">
+          <li class="kart belir">
+            <span class="kart-ikon" aria-hidden="true">01</span>
+            <h3><span lang="tr">Sistem odaklı tasarım</span><span lang="en">Systems-driven design</span></h3>
+            <p lang="tr">Oyunlarımızı, oyuncunun her denemede yeni bir taktik kurabileceği sistemler üzerine inşa ediyoruz.</p>
+            <p lang="en">We build our games on systems that let players come up with a new tactic on every run.</p>
+          </li>
+          <li class="kart belir">
+            <span class="kart-ikon" aria-hidden="true">02</span>
+            <h3><span lang="tr">Kendi araçlarımız</span><span lang="en">Our own tools</span></h3>
+            <p lang="tr">Seviye editörlerinden görsel scripting'e kadar üretimi hızlandıran araçları kendimiz geliştiriyoruz.</p>
+            <p lang="en">From level editors to visual scripting, we develop the tools that speed up our production.</p>
+          </li>
+          <li class="kart belir">
+            <span class="kart-ikon" aria-hidden="true">03</span>
+            <h3><span lang="tr">Küçük ve çevik ekip</span><span lang="en">Small, agile team</span></h3>
+            <p lang="tr">Tasarım, kod ve sanat aynı masada. Fikirden oynanabilir prototipe hızla geçiyoruz.</p>
+            <p lang="en">Design, code and art sit at the same table. We move from idea to playable prototype fast.</p>
+          </li>
+        </ul>
+
+        <h3 class="altbaslik belir"><span lang="tr">Ekip</span><span lang="en">Team</span></h3>
+
+        <!-- Kişi kartları. --odak: fotoğrafın dikeyde kadraja alınacak yeri
+             (0% üst, 100% alt). Yeni kişi için bir <li>'yi kopyalayın. -->
+        <ul class="ekip">
+          <li class="kisi belir">
+            <div class="kisi-foto">
+              <img src="img/ekip/harun-kalli.jpg" width="720" height="720" loading="lazy" alt="Harun Kalli" style="--odak: 30%">
+            </div>
+            <div class="kisi-etiket">
+              <span class="kisi-gorev"><span lang="tr">Proje Yöneticisi</span><span lang="en">Project Lead</span></span>
+              <span class="kisi-ad">Harun Kalli</span>
+              <span class="kisi-rol">GAME DEVELOPMENT / DESIGN</span>
+              <span class="kisi-baglar">
+                <a href="https://www.linkedin.com/in/harun-kalli" target="_blank" rel="noopener">LINKEDIN</a>
+                <a href="https://www.artstation.com/harunkll" target="_blank" rel="noopener">ARTSTATION</a>
+              </span>
+            </div>
+          </li>
+          <li class="kisi belir">
+            <div class="kisi-foto">
+              <img src="img/ekip/nil-neal.jpg" width="720" height="720" loading="lazy" alt="Nil Neal" style="--odak: 30%">
+            </div>
+            <div class="kisi-etiket">
+              <span class="kisi-ad">Nil Neal</span>
+              <span class="kisi-rol">GAME ART / DESIGN</span>
+              <span class="kisi-baglar">
+                <a href="https://www.linkedin.com/in/nilneal" target="_blank" rel="noopener">LINKEDIN</a>
+                <a href="https://www.artstation.com/nilneal" target="_blank" rel="noopener">ARTSTATION</a>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!--═══════════════  03 · İLETİŞİM  ═══════════════-->
+    <section class="bolum iletisim" id="iletisim">
+      <div class="kap belir">
+        <p class="num"><span lang="tr">03 · İletişim</span><span lang="en">03 · Contact</span></p>
+        <h2><span lang="tr">Bize ulaşın</span><span lang="en">Get in touch</span></h2>
+        <p lang="tr">Yayıncılık, yatırım, basın ve iş birliği teklifleriniz için bize yazın. Kapalı teste katılmak isteyen oyuncuları da bekliyoruz.</p>
+        <p lang="en">Write to us about publishing, investment, press or partnerships. Players who want to join the closed test are welcome too.</p>
+
+        <a class="eposta" href="mailto:info@zeyondgames.com">info@zeyondgames.com</a>
+
+        <!-- Sosyal medya. YouTube hazır; diğerleri linkleri gelince
+             href'i doldurup "hidden" özniteliğini silmek yeterli. -->
+        <ul class="sosyal">
+          <li><a href="https://www.youtube.com/@ZeyondGames" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9l5.8 3.1z"/></svg>
+          </a></li>
+          <li hidden><a href="#" target="_blank" rel="noopener" aria-label="X">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 2.5h3.3l-7.2 8.2 8.5 11.3h-6.7l-5.2-6.8-6 6.8H1.2l7.7-8.8L.8 2.5h6.8l4.7 6.2zm-1.2 17.5h1.8L6.8 4.4H4.8z"/></svg>
+          </a></li>
+          <li hidden><a href="#" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.2.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-9.6a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg>
+          </a></li>
+          <li hidden><a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>
+          </a></li>
+          <li hidden><a href="#" target="_blank" rel="noopener" aria-label="Discord">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.3a18.4 18.4 0 0 0-5.6 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.5 9.1-.3 13.6.1 18.1A19.9 19.9 0 0 0 6.1 21l1.3-2a12.9 12.9 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12.2 0l.5.4-2 1 1.3 2a19.8 19.8 0 0 0 6-3c.5-5.2-.8-9.7-3.6-13.6zM8 15.4c-1.2 0-2.2-1.1-2.2-2.4S6.8 10.6 8 10.6s2.2 1.1 2.2 2.4-1 2.4-2.2 2.4zm8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4z"/></svg>
+          </a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="alt">
+    <img src="img/logo.png" alt="" width="28" height="28">
+    <p>© <span id="yil">2026</span> Zeyond Games · <span lang="tr">Tüm hakları saklıdır.</span><span lang="en">All rights reserved.</span></p>
+    <a href="mailto:info@zeyondgames.com">info@zeyondgames.com</a>
+  </footer>
+
+
+  <!--═══════════════  KAPALI TEST PENCERESİ  ═══════════════-->
+  <!-- "Kapalı teste katıl" düğmesi açar (js/main.js) -->
+  <dialog class="pencere" id="testPencere" aria-labelledby="testBaslik">
+    <button class="pencere-kapat" type="button" data-kapat data-label-tr="Kapat" data-label-en="Close"></button>
+    <p class="num"><span lang="tr">ANDROID · Google Play kapalı test</span><span lang="en">Android · Google Play closed test</span></p>
+    <h3 id="testBaslik"><span lang="tr">Oyunu denemek için önce bize yazın</span><span lang="en">Write to us first to try the game</span></h3>
+    <p lang="tr">Hexafield şu anda Google Play'de kapalı test aşamasında ve yalnızca Android cihazlarda oynanabiliyor. iOS ve Steam sürümleri henüz hazır değil.</p>
+    <p lang="en">Hexafield is currently in closed testing on Google Play and can only be played on Android devices. iOS and Steam versions are not ready yet.</p>
+    <ol class="adimlar">
+      <li><span lang="tr">Google Play hesabınızın e-posta adresini bize gönderin.</span><span lang="en">Send us the email address of your Google Play account.</span></li>
+      <li><span lang="tr">Sizi test kullanıcısı olarak ekleyelim.</span><span lang="en">We'll add you as a tester.</span></li>
+      <li><span lang="tr">Kapalı test bağlantısından oyunu indirip oynayın.</span><span lang="en">Download the game from the closed test link and play.</span></li>
+    </ol>
+    <a class="pencere-eposta" href="mailto:info@zeyondgames.com?subject=Hexafield%20closed%20test">info@zeyondgames.com</a>
+    <div class="eylemler">
+      <a class="eylem birincil" href="mailto:info@zeyondgames.com?subject=Hexafield%20closed%20test"><span lang="tr">E-posta gönder</span><span lang="en">Send email</span></a>
+      <a class="eylem ikincil" href="https://play.google.com/apps/testing/com.zeyondgames.cargobot" target="_blank" rel="noopener"><span lang="tr">Google Play'e git</span><span lang="en">Open Google Play</span></a>
+    </div>
+  </dialog>
+
+</body>
+</html>

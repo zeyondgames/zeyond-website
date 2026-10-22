@@ -1,0 +1,38 @@
+<!doctype html>
+<!-- Olmayan bir adrese girilince GitHub Pages bu sayfayı gösterir.
+     Her adreste açılabildiği için dosya yolları / ile başlar. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 · Zeyond Games</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#05070a">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    (function () {
+      var dil;
+      try { dil = localStorage.getItem("zeyond-dil"); } catch (e) {}
+      if (dil !== "tr" && dil !== "en") dil = /^tr\b/i.test(navigator.language || "") ? "tr" : "en";
+      document.documentElement.lang = dil;
+    })();
+  </script>
+</head>
+<body>
+  <main class="giris">
+    <div class="giris-orta" style="margin-block: auto">
+      <p class="giris-ust"><span lang="tr">Sayfa bulunamadı</span><span lang="en">Page not found</span></p>
+      <h1>404</h1>
+      <p class="giris-metin" lang="tr">Aradığınız sayfa simülasyonun dışında kalmış. Ana sayfaya dönüp oradan devam edebilirsiniz.</p>
+      <p class="giris-metin" lang="en">The page you're looking for is outside the simulation. Head back to the home page and carry on from there.</p>
+      <div class="eylemler">
+        <a class="eylem birincil" href="/"><span lang="tr">Ana sayfa</span><span lang="en">Home page</span></a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# İşletim sistemi artıkları
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.DS_Store
+._*
+
+# Editör ayarları
+.vscode/
+.idea/
+*.swp
+*~
