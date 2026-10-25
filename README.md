@@ -2,9 +2,10 @@
 
 Zeyond Games'in kurumsal sitesi: **https://zeyondgames.com**
 
-Sade HTML, CSS ve biraz JavaScript ile yazılmış statik bir site. Build aracı
-ya da framework yok. Dosyayı değiştirip `main` dalına gönderdiğinizde
-GitHub Pages siteyi bir iki dakika içinde kendiliğinden günceller.
+Sade HTML, CSS ve biraz JavaScript ile yazılmış statik bir site. Dosyayı
+değiştirip `main` dalına gönderdiğinizde GitHub Pages siteyi bir iki dakika
+içinde kendiliğinden günceller. Devlog sayfalarını GitHub'ın yerleşik
+Jekyll'ı üretir; bilgisayarınıza bir şey kurmanız gerekmez.
 
 ## Dosyalar
 
@@ -12,11 +13,52 @@ GitHub Pages siteyi bir iki dakika içinde kendiliğinden günceller.
 |---|---|
 | `index.html` | Sayfanın tüm içeriği: giriş, oyunlar, hakkımızda, iletişim |
 | `style.css` | Renkler, yazı tipleri ve tüm görünüm. Renkler en üstte `:root` içinde |
-| `js/main.js` | Dil düğmesi, mobil menü, kapalı test penceresi, fragman oynatıcı |
+| `js/main.js` | Dil düğmesi, mobil menü, kapalı test penceresi |
 | `404.html` | Olmayan bir adrese girilince açılan sayfa |
 | `img/` | Logo, ikonlar, oyun görselleri, ekip fotoğrafları |
 | `CNAME` | Alan adı (`zeyondgames.com`). **Silmeyin**, yoksa domain bağlantısı kopar |
-| `.nojekyll` | GitHub'ın siteyi olduğu gibi yayınlamasını sağlar. Silmeyin |
+| `_posts/` | Devlog yazıları. Her yazı bir `.md` dosyası |
+| `devlog/index.html` | Devlog liste sayfası. Yazıları kendiliğinden listeler |
+| `_layouts/` | Devlog sayfalarının şablonları (üst çubuk, yazı düzeni) |
+| `_config.yml` | Jekyll ayarları |
+| `img/devlog/` | Devlog yazılarındaki görseller |
+
+## Devlog yazısı eklemek
+
+1. `_posts/` içinde yeni bir dosya açın. Adı **tarih-ile-baslar.md**
+   biçiminde olmalı, örneğin `2026-11-05-yeni-robot-sinifi.md`. Dosya adındaki
+   kısım adres olur: `zeyondgames.com/devlog/yeni-robot-sinifi/`. Türkçe
+   karakter ve boşluk kullanmayın.
+2. Dosyanın en üstüne bu bilgileri yazın:
+
+   ```
+   ---
+   baslik_tr: Yeni robot sınıfı
+   baslik_en: A new robot class
+   ozet_tr: Listede görünen bir iki cümlelik özet.
+   ozet_en: A one or two sentence summary for the list.
+   oyun: HEXAFIELD
+   kapak: /img/devlog/yeni-robot.jpg
+   ---
+   ```
+
+   `oyun` ve `kapak` isteğe bağlı; istemezseniz satırı silin.
+3. Altına önce Türkçe metni, sonra `<!-- EN -->` satırını, sonra İngilizce
+   metni yazın. Bu satırı tam olarak böyle yazın; sitedeki dil düğmesi metni
+   bu satırdan ayırır.
+4. Görselleri `img/devlog/` içine koyun (genişlik en fazla 1400 piksel) ve
+   metinde şöyle kullanın: `![Robotun ekran görüntüsü](/img/devlog/yeni-robot.jpg)`
+5. Gönderin (commit + push). 1-2 dakika sonra yazı `/devlog/` sayfasında
+   en üstte görünür.
+
+Metin biçimleri: `## Ara başlık`, `**kalın**`, `- liste maddesi`,
+`[bağlantı](https://...)`. Örnek için `_posts/` içindeki ilk yazıya bakın.
+
+Tarihi bugünden ileri bir güne ayarlarsanız yazı o gün gelmeden yayınlanmaz.
+
+Bir yazı yayınlanmadıysa GitHub'da depo sayfasındaki **Actions** sekmesine
+bakın. Kırmızı çarpı varsa hata mesajı orada yazar (genellikle üstteki `---`
+bölümündeki bir yazım hatası).
 
 ## Sık yapılacak değişiklikler
 
@@ -45,7 +87,9 @@ kare ve yaklaşık 720×720 piksel olarak koyun.
 
 ## Bilgisayarda önizlemek
 
-`index.html` dosyasına çift tıklayıp tarayıcıda açmanız yeterli.
+`index.html` dosyasına çift tıklayıp tarayıcıda açmanız yeterli. Devlog
+sayfaları bilgisayarda bu şekilde açılmaz; onları GitHub'a gönderdikten
+sonra sitede görürsünüz.
 
 ## Lisans
 

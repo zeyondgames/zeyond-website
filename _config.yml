@@ -1,0 +1,23 @@
+# Jekyll ayarları. GitHub Pages siteyi yayınlamadan önce bu dosyayı okur.
+# Yalnızca devlog için kullanılıyor: _posts/ içindeki her .md dosyası
+# /devlog/yazi-adi/ adresinde bir sayfaya dönüşür. index.html ve 404.html
+# olduğu gibi yayınlanır.
+
+title: Zeyond Games
+url: https://zeyondgames.com
+lang: en
+
+markdown: kramdown
+permalink: /devlog/:title/
+
+# Yazılar varsayılan olarak "yazi" şablonunu kullanır
+defaults:
+  - scope:
+      type: posts
+    values:
+      layout: yazi
+
+# Siteye konmayacak dosyalar
+exclude:
+  - README.md
+  - LICENSE

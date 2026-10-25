@@ -1,6 +1,6 @@
 /*  Zeyond Games · sayfa davranışları
     Dil (TR / EN), mobil menü, aktif bölüm, kaydırınca belirme, kapalı test
-    penceresi ve fragman oynatıcısı. Sayfa bu dosya olmadan da okunur;
+    penceresi. Sayfa bu dosya olmadan da okunur;
     yalnızca bu küçük etkileşimler eksik kalır. */
 
 (function () {
@@ -27,9 +27,10 @@
 
   function diliUygula(dil) {
     kok.lang = dil;
-    document.title = basliklar[dil].title;
+    // Devlog sayfaları kendi başlığını <html data-title-tr="..."> ile verir
+    document.title = kok.getAttribute("data-title-" + dil) || basliklar[dil].title;
     var aciklama = document.querySelector('meta[name="description"]');
-    if (aciklama) aciklama.content = basliklar[dil].description;
+    if (aciklama) aciklama.content = kok.getAttribute("data-description-" + dil) || basliklar[dil].description;
 
     document.querySelectorAll("[data-label-" + dil + "]").forEach(function (el) {
       el.setAttribute("aria-label", el.getAttribute("data-label-" + dil));
@@ -72,10 +73,11 @@
   });
 
   /*──────────  AKTİF BÖLÜM  ──────────*/
-  /* Ekranın ortasındaki bölümün menü bağlantısı renklenir */
+  /* Ekranın ortasındaki bölümün menü bağlantısı renklenir. Yalnızca ana
+     sayfada; devlog sayfalarında DEVLOG bağlantısı hep renkli kalır. */
 
   var baglar = document.querySelectorAll(".baglar a");
-  if ("IntersectionObserver" in window) {
+  if ("IntersectionObserver" in window && document.getElementById("giris")) {
     var bolumGozcu = new IntersectionObserver(function (girdiler) {
       girdiler.forEach(function (g) {
         if (!g.isIntersecting) return;
@@ -123,20 +125,6 @@
   document.querySelectorAll("dialog").forEach(function (pencere) {
     pencere.addEventListener("click", function (e) {
       if (e.target === pencere || e.target.hasAttribute("data-kapat")) pencere.close();
-    });
-  });
-
-  /*──────────  FRAGMAN  ──────────*/
-  /* Kapağa tıklanınca YouTube oynatıcısı (çerezsiz sürüm) yerine gelir */
-
-  document.querySelectorAll("[data-video]").forEach(function (kapak) {
-    kapak.addEventListener("click", function () {
-      var iframe = document.createElement("iframe");
-      iframe.src = "https://www.youtube-nocookie.com/embed/" + kapak.getAttribute("data-video") + "?autoplay=1&rel=0";
-      iframe.title = "Hexafield";
-      iframe.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
-      iframe.allowFullscreen = true;
-      kapak.replaceWith(iframe);
     });
   });
 

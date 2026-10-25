@@ -1,0 +1,49 @@
+---
+layout: temel
+baslik_tr: Devlog
+baslik_en: Devlog
+ozet_tr: Zeyond Games geliştirme günlüğü. Hexafield ve diğer projelerimizin perde arkası.
+ozet_en: The Zeyond Games development log. Behind the scenes of Hexafield and our other projects.
+---
+{%- comment -%}
+  Devlog liste sayfası (zeyondgames.com/devlog/). Buraya elle bir şey
+  eklemeye gerek yok: _posts/ içindeki her yazı en yenisi üstte olacak
+  şekilde kendiliğinden listelenir.
+{%- endcomment -%}
+    <section class="bolum devlog">
+      <div class="kap">
+        <header class="bolum-bas">
+          <p class="num"><span lang="tr">Geliştirme günlüğü</span><span lang="en">Development log</span></p>
+          <h2>DEVLOG</h2>
+        </header>
+
+        {%- if site.posts.size == 0 %}
+        <p class="devlog-bos"><span lang="tr">Henüz yazı yok. Yakında burada.</span><span lang="en">No posts yet. Coming soon.</span></p>
+        {%- endif %}
+
+        <ul class="devlog-liste">
+          {%- for yazi in site.posts %}
+          {%- assign baslik_tr = yazi.baslik_tr | default: yazi.title -%}
+          {%- assign baslik_en = yazi.baslik_en | default: baslik_tr -%}
+          {%- assign ozet_tr = yazi.ozet_tr | default: yazi.excerpt | strip_html | strip_newlines | truncate: 180 -%}
+          {%- assign ozet_en = yazi.ozet_en | default: ozet_tr %}
+          <li>
+            <a class="devlog-kart" href="{{ yazi.url }}">
+              {%- if yazi.kapak %}
+              <img src="{{ yazi.kapak }}" alt="" loading="lazy">
+              {%- endif %}
+              <div class="devlog-metin">
+                <p class="num">
+                  <time datetime="{{ yazi.date | date: '%Y-%m-%d' }}">{{ yazi.date | date: "%d.%m.%Y" }}</time>
+                  {%- if yazi.oyun %} · {{ yazi.oyun }}{% endif %}
+                </p>
+                <h3><span lang="tr">{{ baslik_tr }}</span><span lang="en">{{ baslik_en }}</span></h3>
+                <p class="devlog-ozet"><span lang="tr">{{ ozet_tr }}</span><span lang="en">{{ ozet_en }}</span></p>
+                <span class="devlog-oku"><span lang="tr">Yazıyı oku</span><span lang="en">Read post</span></span>
+              </div>
+            </a>
+          </li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </section>

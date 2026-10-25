@@ -1,0 +1,62 @@
+---
+layout: temel
+---
+{%- comment -%}
+  Tek bir devlog yazısı. Yazının metni önce Türkçe, sonra İngilizce
+  yazılır; ikisini <!-- EN --> satırı ayırır. Bu satır yoksa metin her
+  iki dilde de aynen görünür.
+{%- endcomment -%}
+{%- assign bolumler = content | split: "<!-- EN -->" -%}
+    <article class="bolum yazi">
+      <div class="kap">
+        <a class="geri" href="/devlog/"><span lang="tr">Tüm yazılar</span><span lang="en">All posts</span></a>
+
+        <header class="yazi-bas">
+          <p class="num">
+            <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%d.%m.%Y" }}</time>
+            {%- if page.oyun %} · {{ page.oyun }}{% endif %}
+          </p>
+          {%- if page.baslik_en and page.baslik_en != page.baslik_tr %}
+          <h1><span lang="tr">{{ page.baslik_tr }}</span><span lang="en">{{ page.baslik_en }}</span></h1>
+          {%- else %}
+          <h1>{{ page.baslik_tr | default: page.title }}</h1>
+          {%- endif %}
+        </header>
+
+        {%- if page.kapak %}
+        <figure class="yazi-kapak">
+          <img src="{{ page.kapak }}" alt="">
+        </figure>
+        {%- endif %}
+
+        {%- if bolumler.size > 1 %}
+        <div class="yazi-govde" lang="tr">
+{{ bolumler[0] }}
+        </div>
+        <div class="yazi-govde" lang="en">
+{{ bolumler[1] }}
+        </div>
+        {%- else %}
+        <div class="yazi-govde">
+{{ content }}
+        </div>
+        {%- endif %}
+
+        {%- if page.previous or page.next %}
+        <nav class="yazi-gezin" aria-label="Devlog">
+          {%- if page.previous %}
+          <a class="onceki" href="{{ page.previous.url }}">
+            <span class="yon"><span lang="tr">Önceki yazı</span><span lang="en">Previous post</span></span>
+            <span lang="tr">{{ page.previous.baslik_tr | default: page.previous.title }}</span><span lang="en">{{ page.previous.baslik_en | default: page.previous.baslik_tr | default: page.previous.title }}</span>
+          </a>
+          {%- endif %}
+          {%- if page.next %}
+          <a class="sonraki" href="{{ page.next.url }}">
+            <span class="yon"><span lang="tr">Sonraki yazı</span><span lang="en">Next post</span></span>
+            <span lang="tr">{{ page.next.baslik_tr | default: page.next.title }}</span><span lang="en">{{ page.next.baslik_en | default: page.next.baslik_tr | default: page.next.title }}</span>
+          </a>
+          {%- endif %}
+        </nav>
+        {%- endif %}
+      </div>
+    </article>
