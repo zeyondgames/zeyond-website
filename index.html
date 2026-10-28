@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
   Zeyond Games · kurumsal site
-  Tek sayfa: Giriş, Oyunlar, Hakkımızda, İletişim.
+  Tek sayfa: Giriş, Hexafield (oyun), Platformlar, Stüdyo, İletişim.
 
   İKİ DİL NASIL ÇALIŞIR
   Her metin iki kez yazılır, yan yana durur:
@@ -15,23 +15,23 @@
   BÜYÜK HARF NOTU
   Etiket ve düğme yazıları CSS ile büyük harfe çevrilir. Türkçe modda
   tarayıcı "i" harfini "İ" yapar; bu yüzden büyük harfle görünen
-  İngilizce kelimeleri (ACTION RPG, LINKEDIN gibi) doğrudan büyük harfle
-  yazın, yoksa "ACTİON" gibi görünür.
+  İngilizce kelimeleri (ACTION RPG, SOULS-LITE, LINKEDIN gibi) doğrudan
+  büyük harfle yazın, yoksa "ACTİON" gibi görünür.
 -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Zeyond Games · Video Game Studio</title>
-  <meta name="description" content="Zeyond Games is an independent video game studio building systems-driven tactical action games. Now in closed test: Hexafield.">
+  <title>Hexafield · Souls-lite Robot Shooter · Zeyond Games</title>
+  <meta name="description" content="Hexafield is a souls-lite action RPG shooter set in an open hex-grid world ruled by robots. Coming first to Steam, then to consoles. Made by Zeyond Games.">
   <meta name="theme-color" content="#05070a">
   <link rel="canonical" href="https://zeyondgames.com/">
 
   <!-- Bağlantı paylaşılınca görünen kart (WhatsApp, X, LinkedIn vb.) -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Zeyond Games">
-  <meta property="og:title" content="Zeyond Games · Video Game Studio">
-  <meta property="og:description" content="Independent video game studio. Now in closed test: Hexafield.">
+  <meta property="og:title" content="Hexafield · Zeyond Games">
+  <meta property="og:description" content="A souls-lite robot shooter in an open hex-grid world. Coming first to Steam, then to consoles.">
   <meta property="og:url" content="https://zeyondgames.com/">
   <meta property="og:image" content="https://zeyondgames.com/img/og.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -70,10 +70,11 @@
     </a>
 
     <nav class="baglar" id="baglar" aria-label="Menu">
-      <a href="#oyunlar" data-dilim="1"><span lang="tr">Oyunlar</span><span lang="en">Games</span></a>
-      <a href="/devlog/" data-dilim="2">DEVLOG</a>
-      <a href="#hakkimizda" data-dilim="3"><span lang="tr">Hakkımızda</span><span lang="en">About</span></a>
-      <a href="#iletisim" data-dilim="4"><span lang="tr">İletişim</span><span lang="en">Contact</span></a>
+      <a href="#hexafield" data-dilim="1">HEXAFIELD</a>
+      <a href="#platformlar" data-dilim="2"><span lang="tr">Platformlar</span><span lang="en">Platforms</span></a>
+      <a href="/devlog/" data-dilim="3">DEVLOG</a>
+      <a href="#hakkimizda" data-dilim="4"><span lang="tr">Stüdyo</span><span lang="en">Studio</span></a>
+      <a href="#iletisim" data-dilim="5"><span lang="tr">İletişim</span><span lang="en">Contact</span></a>
     </nav>
 
     <div class="cubuk-araclar">
@@ -90,87 +91,91 @@
 
     <!--═══════════════  GİRİŞ (HERO)  ═══════════════-->
     <section class="giris" id="giris">
-      <!-- Arkada dönen altıgen halkalar ve ortada tek hücresi yanan petek.
-           Yalnızca süs. -->
-      <div class="giris-sahne" aria-hidden="true">
-        <svg viewBox="0 0 600 600">
-          <defs><polygon id="hucre" points="31.2,18 0,36 -31.2,18 -31.2,-18 0,-36 31.2,-18"/></defs>
-          <g class="don">
-            <circle cx="300" cy="300" r="268" stroke-dasharray="2 12"/>
-            <polygon points="542.5,440 300,580 57.5,440 57.5,160 300,20 542.5,160"/>
-          </g>
-          <g class="don ters">
-            <polygon class="vurgu" stroke-dasharray="70 26" points="490.5,410 300,520 109.5,410 109.5,190 300,80 490.5,190"/>
-          </g>
-          <polygon class="soguk" stroke-dasharray="4 8" points="429.9,375 300,450 170.1,375 170.1,225 300,150 429.9,225"/>
-          <path d="M300 0v16M300 584v16M0 300h16M584 300h16"/>
-          <g class="petek">
-            <use href="#hucre" x="369.3" y="300"/>
-            <use href="#hucre" x="334.6" y="360"/>
-            <use href="#hucre" x="265.4" y="360"/>
-            <use href="#hucre" x="230.7" y="300"/>
-            <use href="#hucre" x="265.4" y="240"/>
-            <use href="#hucre" x="334.6" y="240"/>
-            <use href="#hucre" x="300" y="300" class="anomali"/>
-          </g>
-        </svg>
+      <!-- Arka plan. Şimdilik yatay bir oynanış görüntüsü.
+           FRAGMAN HAZIR OLUNCA: videoyu img/hexafield/fragman.mp4 adıyla
+           ekleyin ve aşağıdaki <video> satırını yorumdan çıkarın. Video
+           sessiz ve döngüde oynar; yüklenene kadar ya da oynatılamazsa
+           arkadaki görüntü görünür. -->
+      <div class="giris-medya" aria-hidden="true">
+        <img src="img/hexafield/oynanis.jpg" width="1920" height="1080" alt="" fetchpriority="high">
+        <!-- <video src="img/hexafield/fragman.mp4" poster="img/hexafield/oynanis.jpg" autoplay muted loop playsinline></video> -->
       </div>
 
       <div class="giris-orta">
         <p class="giris-ust">
-          <span lang="tr">Bağımsız Oyun Stüdyosu</span>
-          <span lang="en">Independent Game Studio</span>
+          <span lang="tr">Zeyond Games sunar</span>
+          <span lang="en">Zeyond Games presents</span>
         </p>
-        <h1>ZEYOND GAMES</h1>
-        <p class="slogan">VIDEO GAME STUDIO</p>
-        <p class="giris-metin" lang="tr">Robotlar, prosedürel arenalar ve taktik çatışmalar. Mobil ve PC için sistem odaklı aksiyon oyunları geliştiriyoruz.</p>
-        <p class="giris-metin" lang="en">Robots, procedural arenas and tactical combat. We build systems-driven action games for mobile and PC.</p>
+        <h1>HEXAFIELD</h1>
+        <p class="slogan">SOULS-LITE ROBOT SHOOTER</p>
+        <p class="giris-metin" lang="tr">Robotların hüküm sürdüğü, hex ızgaralı bir açık dünya. Savaş ya da gizlen, robotunu dilediğin gibi build et, boss'ları yenip yeni bölgeler aç.</p>
+        <p class="giris-metin" lang="en">An open hex-grid world ruled by robots. Fight or sneak past, build your robot your way, and defeat bosses to open up new regions.</p>
         <div class="eylemler">
-          <a class="eylem birincil" href="#oyunlar"><span lang="tr">Oyunlarımız</span><span lang="en">Our Games</span></a>
-          <a class="eylem ikincil" href="#iletisim"><span lang="tr">Bize yazın</span><span lang="en">Contact us</span></a>
+          <button class="eylem birincil" type="button" data-ac="testPencere">
+            <span lang="tr">Kapalı teste katıl</span><span lang="en">Join the closed test</span>
+          </button>
+          <a class="eylem ikincil" href="#hexafield"><span lang="tr">Oyunu keşfet</span><span lang="en">Explore the game</span></a>
         </div>
+        <!-- Steam sayfası açılınca bu satırı Steam bağlantısına çevirin
+             (<p> yerine <a href="https://store.steampowered.com/app/...">)
+             ve metni "Steam'de istek listene ekle" yapın. -->
+        <p class="giris-platform">
+          <svg class="steam" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/></svg>
+          <span lang="tr"><strong>Önce Steam'de</strong> · ardından konsollarda</span>
+          <span lang="en"><strong>Coming first to Steam</strong> · then to consoles</span>
+        </p>
       </div>
 
-      <a class="giris-durum" href="#hexafield">
+      <a class="giris-durum" href="#platformlar">
         <span class="nabiz" aria-hidden="true"></span>
-        <span lang="tr">Şu an kapalı testte:</span><span lang="en">Now in closed test:</span>
-        <strong>HEXAFIELD</strong>
+        <span lang="tr">Şu an kapalı alfada:</span><span lang="en">Now in closed alpha:</span>
+        <strong><span lang="tr">PC ve mobil</span><span lang="en">PC &amp; mobile</span></strong>
       </a>
     </section>
 
 
-    <!--═══════════════  01 · OYUNLAR  ═══════════════-->
-    <section class="bolum" id="oyunlar">
+    <!--═══════════════  01 · HEXAFIELD  ═══════════════-->
+    <section class="bolum" id="hexafield">
       <div class="kap">
         <header class="bolum-bas belir">
-          <p class="num"><span lang="tr">01 · Oyunlar</span><span lang="en">01 · Games</span></p>
-          <h2><span lang="tr">Oyunlarımız</span><span lang="en">Our Games</span></h2>
+          <p class="num"><span lang="tr">01 · Oyun</span><span lang="en">01 · The Game</span></p>
+          <h2><span lang="tr">Ya bir SOULS-LIKE, shooter olsaydı?</span><span lang="en">What if a souls-like were a shooter?</span></h2>
         </header>
 
-        <!-- Oyun kartı: solda bilgiler, sağda üç ekran görüntüsü. Yeni bir
-             oyun eklemek için bu <article>'ı kopyalayıp içini değiştirin. -->
-        <article class="oyun" id="hexafield">
+        <!-- Oyun özeti: solda bilgiler, sağda oyun döngüsü -->
+        <article class="oyun">
           <div class="oyun-bilgi belir">
             <p class="durum">
               <span class="nabiz" aria-hidden="true"></span>
-              <span lang="tr">Kapalı test · ANDROID</span><span lang="en">Closed test · Android</span>
+              <span lang="tr">Kapalı alfa · PC ve mobil test</span><span lang="en">Closed alpha · PC &amp; mobile testing</span>
             </p>
-            <h3 class="oyun-ad">HEXAFIELD</h3>
-            <p class="oyun-tur"><span lang="tr">Robotik Shooter · Aksiyon RPG</span><span lang="en">Robotic Shooter · Action RPG</span></p>
+            <p class="oyun-tur"><span lang="tr">SOULS-LITE · Aksiyon RPG · Shooter</span><span lang="en">Souls-lite · Action RPG · Shooter</span></p>
 
-            <p lang="tr">Hexafield, her girişte yeniden üretilen çok katmanlı bir hex arenada geçen, taktik savaş ve keşif odaklı bir roguelite. Savaş sisinin ardındaki düşmanları tespit et, çimenlere gizlen, lootbox'ları yağmala ve asansörlerle katlar arasında ilerleyerek çıkışı bul.</p>
-            <p lang="en">Hexafield is a tactical roguelite set in a multi-layered hex arena that is rebuilt on every run. Spot enemies through the fog of war, hide in tall grass, loot crates and ride elevators between layers to find the exit.</p>
-            <p lang="tr">Assault, Assassin, Breacher, Recon, Tank ve Support: altı robot sınıfının her birinin kendine özgü silahı ve taktiği var. Amaç görevi tamamlamak, hayatta kalmak ve simülasyondan kaçmak.</p>
-            <p lang="en">Assault, Assassin, Breacher, Recon, Tank and Support: each of the six robot classes has its own weapons and tactics. Your goal is to complete the mission, survive and escape the simulation.</p>
+            <p lang="tr">Hexafield bu sorunun cevabı: robotların hüküm sürdüğü bilimkurgu bir evrende geçen, açık dünya bir aksiyon RPG. Souls-like oyunların gerilimini ve boss savaşlarını, daha erişilebilir bir tempoyla bir shooter'ın içine taşıyor.</p>
+            <p lang="en">Hexafield is our answer: an open-world action RPG set in a sci-fi universe ruled by robots. It brings the tension and boss fights of a souls-like into a shooter, at a more approachable pace.</p>
+            <p lang="tr">İzometrik 3D kamerayla oynanan oyunda nişan ve ateş otomatik. Asıl iş, kaynaklarını doğru yönetmek ve her karşılaşmada savaşmakla gizlenmek arasında seçim yapmak.</p>
+            <p lang="en">Played from an isometric 3D camera, aiming and firing are automatic. The real challenge is managing your resources and deciding, in every encounter, whether to fight or stay hidden.</p>
 
             <ul class="cipler">
-              <li>ACTION RPG</li><li>ROGUELITE</li><li>TOP-DOWN 3D</li><li>PROCEDURAL</li><li>TACTICAL</li><li>SCI-FI</li>
+              <li>ACTION RPG</li><li>SHOOTER</li><li>OPEN WORLD</li><li>SOULS-LITE</li><li>ISOMETRIC 3D</li><li>HEX GRID</li><li>SCI-FI</li>
             </ul>
 
             <dl class="kunye">
               <div>
-                <dt><span lang="tr">Platform</span><span lang="en">Platform</span></dt>
-                <dd><span lang="tr">Android · iOS ve Steam planlanıyor</span><span lang="en">Android · iOS &amp; Steam planned</span></dd>
+                <dt>Platform</dt>
+                <dd>Steam (PC)</dd>
+              </div>
+              <div>
+                <dt>Port</dt>
+                <dd><span lang="tr">Konsol</span><span lang="en">Consoles</span></dd>
+              </div>
+              <div>
+                <dt>Test</dt>
+                <dd><span lang="tr">PC ve mobil</span><span lang="en">PC &amp; mobile</span></dd>
+              </div>
+              <div>
+                <dt><span lang="tr">Kamera</span><span lang="en">Camera</span></dt>
+                <dd><span lang="tr">İzometrik 3D</span><span lang="en">Isometric 3D</span></dd>
               </div>
               <div>
                 <dt><span lang="tr">Motor</span><span lang="en">Engine</span></dt>
@@ -189,52 +194,213 @@
             </div>
           </div>
 
-          <div class="oyun-ekranlar belir" aria-label="Hexafield">
-            <img src="img/hexafield/ekran-2.jpg" width="540" height="955" loading="lazy" alt=""
-                 data-alt-tr="Hexafield: altıgen asansörde bekleyen robot" data-alt-en="Hexafield: a robot waiting on a hex elevator">
-            <img src="img/hexafield/ekran-3.jpg" width="540" height="960" loading="lazy" alt=""
-                 data-alt-tr="Hexafield: çimenlerin arasında çatışma" data-alt-en="Hexafield: a firefight among the grass">
-            <img src="img/hexafield/ekran-1.jpg" width="540" height="955" loading="lazy" alt=""
-                 data-alt-tr="Hexafield: arenada düşman robotlar" data-alt-en="Hexafield: enemy robots in the arena">
+          <!-- Oyun döngüsü: numaralı adımlar, sonda başa dönüş -->
+          <div class="dongu belir">
+            <p class="dongu-bas"><span lang="tr">Oyun döngüsü</span><span lang="en">Core loop</span></p>
+            <ol>
+              <li>
+                <strong><span lang="tr">Keşfet</span><span lang="en">Explore</span></strong>
+                <p lang="tr">Hex ızgaralı açık dünyada yeni bölgelere ilerle.</p>
+                <p lang="en">Push into new regions of the open hex-grid world.</p>
+              </li>
+              <li>
+                <strong><span lang="tr">Savaş ya da gizlen</span><span lang="en">Fight or hide</span></strong>
+                <p lang="tr">Çatışmaya gir ya da çimenlere gizlenip görünmeden geç.</p>
+                <p lang="en">Take the fight, or slip past unseen through the tall grass.</p>
+              </li>
+              <li>
+                <strong><span lang="tr">Data ve parça topla</span><span lang="en">Collect Data &amp; parts</span></strong>
+                <p lang="tr">Düşmanlardan Data ve robotik parça setleri kazan.</p>
+                <p lang="en">Earn Data and robotic part sets from enemies.</p>
+              </li>
+              <li>
+                <strong><span lang="tr">Base lift'te güçlen</span><span lang="en">Power up at a Base lift</span></strong>
+                <p lang="tr">Seviye atla, attribute puanlarını dağıt, kaynaklarını yenile.</p>
+                <p lang="en">Level up, spend attribute points and restock your resources.</p>
+              </li>
+              <li>
+                <strong><span lang="tr">Boss'u yen, yeni bölge aç</span><span lang="en">Beat the boss, open a new region</span></strong>
+                <p lang="tr">Kapılar ve kestirmeler açılır, harita genişler.</p>
+                <p lang="en">Gates and shortcuts open up and the map grows.</p>
+              </li>
+              <li class="dongu-tekrar">
+                <strong><span lang="tr">Tekrar</span><span lang="en">Repeat</span></strong>
+                <p lang="tr">Her döngüde robotun biraz daha güçlü, harita biraz daha geniş.</p>
+                <p lang="en">Every loop leaves your robot stronger and the map larger.</p>
+              </li>
+            </ol>
           </div>
         </article>
 
-        <!-- Robot sınıfları: solda metin, sağda sınıf seçim ekranı -->
-        <div class="arac arac--ters">
-          <figure class="arac-gorsel belir">
+        <!-- Öne çıkanlar: üç kart -->
+        <ul class="ozellikler">
+          <li class="kart belir">
+            <span class="kart-ikon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.5"/><path d="M12 2.5v5M12 16.5v5M2.5 12h5M16.5 12h5"/></svg>
+            </span>
+            <h3><span lang="tr">Nişan değil, taktik</span><span lang="en">Tactics over aim</span></h3>
+            <p lang="tr">Otomatik nişan ve otomatik ateş, ateş etmeyi oyuna bırakır. Sen konumuna, zamanlamana ve kaynaklarına odaklan: çatışmaya gir ya da hiç görünmeden geç.</p>
+            <p lang="en">Auto aim and auto fire take care of the shooting. You focus on positioning, timing and resources: take the fight, or get through without being seen.</p>
+          </li>
+          <li class="kart belir">
+            <span class="kart-ikon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2.5 20.2 7.25v9.5L12 21.5l-8.2-4.75v-9.5z"/><path d="M12 8.6l2.95 1.7v3.4L12 15.4l-2.95-1.7v-3.4z"/></svg>
+            </span>
+            <h3><span lang="tr">Hex ızgaralı açık dünya</span><span lang="en">An open hex-grid world</span></h3>
+            <p lang="tr">Hex ızgara üzerine kurulu, stilize bölgelerden oluşan bir açık dünya. Düşman doğma ve checkpoint sistemleri açık dünyaya özel tasarlandı.</p>
+            <p lang="en">An open world of stylized regions built on a hex grid, with enemy spawn and checkpoint systems designed specifically for open-world play.</p>
+          </li>
+          <li class="kart belir">
+            <span class="kart-ikon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 18.5h16M5.2 18.5 3.5 8l5 4L12 5l3.5 7 5-4-1.7 10.5"/></svg>
+            </span>
+            <h3><span lang="tr">Boss savaşları</span><span lang="en">Boss fights</span></h3>
+            <p lang="tr">Her yeni bölgenin yolunu bir boss tutuyor. Onu yenersen yol açılır; yenilirsen taşıdığın tüm Data risk altına girer.</p>
+            <p lang="en">A boss guards the way into every new region. Beat it and the path opens; fall, and all the Data you carry is at stake.</p>
+          </li>
+        </ul>
+
+        <!-- Robot sınıfları ve gelişim: solda metin, sağda sınıf seçim ekranı -->
+        <div class="arac arac--ters arac--kucuk">
+          <figure class="arac-gorsel arac-gorsel--kucuk belir">
             <img src="img/hexafield/siniflar.jpg" width="1080" height="983" loading="lazy" alt=""
                  data-alt-tr="Hexafield: altı robot sınıfı ve silahları" data-alt-en="Hexafield: the six robot classes and their weapons">
           </figure>
           <div class="arac-metin belir">
-            <p class="num"><span lang="tr">Sınıflar</span><span lang="en">Classes</span></p>
-            <h3><span lang="tr">Altı sınıf, altı oyun tarzı</span><span lang="en">Six classes, six playstyles</span></h3>
+            <p class="num"><span lang="tr">Sınıflar ve gelişim</span><span lang="en">Classes &amp; progression</span></p>
+            <h3><span lang="tr">Altı sınıf, sonu olmayan build'ler</span><span lang="en">Six classes, endless builds</span></h3>
             <p lang="tr">Assault, Tank, Recon, Assassin, Breacher ve Support; her sınıf kendi silahı ve istatistik dengesiyle sahaya çıkıyor. Tank LMG ile cepheyi tutarken Recon keskin nişancı tüfeğiyle uzaktan avlanıyor, Breacher ise pompalı tüfeğiyle yakın mesafede yolu açıyor.</p>
             <p lang="en">Assault, Tank, Recon, Assassin, Breacher and Support: each class enters the field with its own weapon and stat profile. The Tank holds the line with an LMG, the Recon hunts from afar with a sniper rifle, and the Breacher clears the way up close with a shotgun.</p>
+            <p lang="tr">Data ile seviye ve attribute puanı kazan, düşmanlardan robotik parça setleri farm et. Kalıcı, çok eksenli ve sonu olmayan bu gelişimle robotunu tam istediğin gibi build et.</p>
+            <p lang="en">Earn levels and attribute points with Data, and farm robotic part sets from enemies. Progression is permanent, multi-axis and endless, so you can build your robot exactly the way you want.</p>
           </div>
         </div>
 
-        <!-- Stüdyonun kendi geliştirdiği araç: WorldBuilder -->
+        <!-- Ekonomi: solda iki katman (Data ve kaynaklar), sağda metin.
+             Çubukların doluluğu (--doluluk) yalnızca görsel bir örnek. -->
         <div class="arac">
-          <figure class="arac-gorsel belir">
-            <img src="img/hexafield/worldbuilder.jpg" width="1400" height="801" loading="lazy" alt=""
-                 data-alt-tr="Unity içinde WorldBuilder seviye editörü" data-alt-en="The WorldBuilder level editor inside Unity">
-          </figure>
+          <div class="katmanlar">
+            <div class="katman kart belir">
+              <p class="katman-no"><span lang="tr">Katman 01</span><span lang="en">Layer 01</span></p>
+              <div class="katman-data">
+                <span class="kart-ikon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 3.5 20.5 8 12 12.5 3.5 8zM3.5 12l8.5 4.5 8.5-4.5M3.5 16l8.5 4.5 8.5-4.5"/></svg>
+                </span>
+                <div>
+                  <p class="katman-ad">DATA</p>
+                  <p class="katman-alt"><span lang="tr">Deneyim + para, tek birim</span><span lang="en">Experience + money in one</span></p>
+                </div>
+              </div>
+              <ul class="katman-kurallar">
+                <li><span lang="tr">Ölünce düşer</span><span lang="en">Dropped on death</span></li>
+                <li><span lang="tr">Tek geri alma şansı</span><span lang="en">One chance to recover</span></li>
+              </ul>
+            </div>
+            <div class="katman kart belir">
+              <p class="katman-no"><span lang="tr">Katman 02 · Kaynaklar</span><span lang="en">Layer 02 · Resources</span></p>
+              <ul class="kaynaklar">
+                <li style="--doluluk: 68%; --renk: var(--isi2)"><span lang="tr">Şarjör</span><span lang="en">Magazine</span><span class="bar" aria-hidden="true"></span></li>
+                <li style="--doluluk: 42%; --renk: var(--accent2)"><span lang="tr">Enerji</span><span lang="en">Energy</span><span class="bar" aria-hidden="true"></span></li>
+                <li style="--doluluk: 57%; --renk: #34d17a"><span lang="tr">Dayanıklılık</span><span lang="en">Durability</span><span class="bar" aria-hidden="true"></span></li>
+              </ul>
+              <div class="mesafe">
+                <p class="mesafe-yol" aria-hidden="true"><span>BASE LIFT</span><b></b><span>BASE LIFT</span></p>
+                <p class="mesafe-not"><span lang="tr">Mesafe = zorluk</span><span lang="en">Distance = difficulty</span></p>
+              </div>
+            </div>
+          </div>
           <div class="arac-metin belir">
-            <p class="num"><span lang="tr">Geliştirme</span><span lang="en">Development</span></p>
-            <h3><span lang="tr">Kendi araçlarımızı yazıyoruz</span><span lang="en">We build our own tools</span></h3>
-            <p lang="tr">Hexafield'ın arenaları, Unity içinde kendi geliştirdiğimiz WorldBuilder editörüyle hazırlanıyor. Hex karoları, botları ve yapıları oyunun içinden yerleştirip anında test ediyoruz.</p>
-            <p lang="en">Hexafield's arenas are made with WorldBuilder, a level editor we built inside Unity. We place hex tiles, bots and structures from within the game and test them instantly.</p>
+            <p class="num"><span lang="tr">Ekonomi</span><span lang="en">Economy</span></p>
+            <h3><span lang="tr">İki katmanlı risk ekonomisi</span><span lang="en">A two-layer risk economy</span></h3>
+            <p lang="tr">Data hem deneyim puanın hem paran: tek birim, iki görev. Ölünce elinden düşer ve onu geri almak için tek bir şansın olur.</p>
+            <p lang="en">Data is both your experience and your money: one currency, two jobs. Die, and you drop it, with a single chance to win it back.</p>
+            <p lang="tr">Şarjör, enerji ve dayanıklılık ise Base lift'ler arasında idare etmen gereken kaynaklar. Her harcama bir tercih; Base lift'ler arasındaki mesafe de bu ekonominin en güçlü zorluk ayarı.</p>
+            <p lang="en">Magazine, energy and durability are resources you have to stretch between Base lifts. Every expense is a choice, and the distance between Base lifts is the economy's strongest difficulty dial.</p>
           </div>
         </div>
       </div>
     </section>
 
 
-    <!--═══════════════  02 · HAKKIMIZDA  ═══════════════-->
+    <!--═══════════════  02 · PLATFORMLAR  ═══════════════-->
+    <section class="bolum" id="platformlar">
+      <div class="kap">
+        <header class="bolum-bas belir">
+          <p class="num"><span lang="tr">02 · Platformlar</span><span lang="en">02 · Platforms</span></p>
+          <h2><span lang="tr">Önce Steam</span><span lang="en">Steam first</span></h2>
+        </header>
+
+        <!-- Yol haritası: Steam'den sonra konsol. Mobil testler ikisinin
+             altında, geliştirme boyunca paralel giden bir hat. -->
+        <ol class="yol">
+          <li class="yol-adim yol-adim--oncelik belir">
+            <p class="yol-etiket"><span lang="tr">01 · Öncelik</span><span lang="en">01 · Priority</span></p>
+            <h3>
+              <svg class="steam" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/></svg>
+              Steam (PC)
+            </h3>
+            <p lang="tr">İlk çıkış platformu ve geliştirmenin odağı. Oyun önce PC için, Steam'de yayınlanacak.</p>
+            <p lang="en">Our first release platform and the focus of development. The game launches on PC, on Steam, first.</p>
+          </li>
+          <li class="yol-adim belir">
+            <p class="yol-etiket"><span lang="tr">02 · Ardından</span><span lang="en">02 · Next</span></p>
+            <h3><span lang="tr">Konsol</span><span lang="en">Consoles</span></h3>
+            <p lang="tr">Steam çıkışının ardından Hexafield'ı konsollara port edeceğiz.</p>
+            <p lang="en">After the Steam launch, we'll port Hexafield to consoles.</p>
+          </li>
+        </ol>
+        <div class="yol-paralel belir">
+          <p class="durum">
+            <span class="nabiz" aria-hidden="true"></span>
+            <span lang="tr">Paralel · Mobil test</span><span lang="en">In parallel · Mobile testing</span>
+          </p>
+          <p lang="tr">Geliştirme boyunca her build'i PC ile birlikte mobilde de test ediyoruz. Android'de kapalı alfa sürüyor.</p>
+          <p lang="en">Throughout development, every build is tested on mobile as well as PC. The closed alpha is running on Android.</p>
+        </div>
+
+        <!-- Aynı oyun, iki ekran: solda metin ve kontroller, sağda PC ve
+             telefon görüntüsü -->
+        <div class="arac arac--ters">
+          <figure class="cihazlar belir">
+            <img class="cihaz-pc" src="img/hexafield/oynanis-pc.jpg" width="1400" height="785" loading="lazy" alt=""
+                 data-alt-tr="Hexafield'ın PC sürümünden bir çatışma" data-alt-en="A firefight in the PC build of Hexafield">
+            <img class="cihaz-tel" src="img/hexafield/ekran-3.jpg" width="540" height="960" loading="lazy" alt=""
+                 data-alt-tr="Hexafield'ın mobil test sürümü" data-alt-en="The mobile test build of Hexafield">
+            <figcaption>
+              <span class="cihaz-etiket cihaz-etiket--pc">PC · STEAM</span>
+              <span class="cihaz-etiket cihaz-etiket--tel"><span lang="tr">Mobil · test</span><span lang="en">Mobile · test</span></span>
+            </figcaption>
+          </figure>
+          <div class="arac-metin belir">
+            <p class="num"><span lang="tr">Kontroller</span><span lang="en">Controls</span></p>
+            <h3><span lang="tr">Aynı oyun, her ekranda</span><span lang="en">One game, every screen</span></h3>
+            <p lang="tr">İzometrik kamera, otomatik nişan ve otomatik ateş sayesinde Hexafield klavye-fare, gamepad ve dokunmatik ekranla oynanabiliyor. Bu yüzden oyunu PC ve mobilde birlikte geliştiriyoruz.</p>
+            <p lang="en">Thanks to its isometric camera, auto aim and auto fire, Hexafield plays with keyboard and mouse, gamepad or touchscreen. That's why we develop it on PC and mobile side by side.</p>
+            <ul class="kontroller">
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="6"/><path d="M12 7v3"/></svg>
+                <span lang="tr">Klavye ve fare</span><span lang="en">Keyboard &amp; mouse</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 7.5h9a5 5 0 0 1 4.8 6.4l-.9 3.1a2.4 2.4 0 0 1-4 1L14.4 16H9.6l-2 2a2.4 2.4 0 0 1-4-1l-.9-3.1a5 5 0 0 1 4.8-6.4z"/><path d="M7.5 10.5v3M6 12h3M15.5 11.5h.01M17.5 13h.01"/></svg>
+                GAMEPAD
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg>
+                <span lang="tr">Dokunmatik ekran</span><span lang="en">Touchscreen</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!--═══════════════  03 · STÜDYO  ═══════════════-->
     <section class="bolum" id="hakkimizda">
       <div class="kap">
         <header class="bolum-bas belir">
-          <p class="num"><span lang="tr">02 · Stüdyo</span><span lang="en">02 · Studio</span></p>
+          <p class="num"><span lang="tr">03 · Stüdyo</span><span lang="en">03 · Studio</span></p>
           <h2><span lang="tr">Hakkımızda</span><span lang="en">About Us</span></h2>
         </header>
 
@@ -250,13 +416,13 @@
             <span class="kart-ikon" aria-hidden="true">01</span>
             <h3><span lang="tr">Sistem odaklı tasarım</span><span lang="en">Systems-driven design</span></h3>
             <p lang="tr">Oyunlarımızı, oyuncunun her denemede yeni bir taktik kurabileceği sistemler üzerine inşa ediyoruz.</p>
-            <p lang="en">We build our games on systems that let players come up with a new tactic on every run.</p>
+            <p lang="en">We build our games on systems that let players come up with a new tactic on every attempt.</p>
           </li>
           <li class="kart belir">
             <span class="kart-ikon" aria-hidden="true">02</span>
-            <h3><span lang="tr">Kendi araçlarımız</span><span lang="en">Our own tools</span></h3>
-            <p lang="tr">Seviye editörlerinden görsel scripting'e kadar üretimi hızlandıran araçları kendimiz geliştiriyoruz.</p>
-            <p lang="en">From level editors to visual scripting, we develop the tools that speed up our production.</p>
+            <h3><span lang="tr">Oyuncuyla birlikte</span><span lang="en">Built with players</span></h3>
+            <p lang="tr">Kapalı alfayı PC ve mobilde paralel yürütüyor, her build'i oyunculardan gelen geri bildirimlerle şekillendiriyoruz.</p>
+            <p lang="en">We run our closed alpha on PC and mobile in parallel and shape every build with feedback from players.</p>
           </li>
           <li class="kart belir">
             <span class="kart-ikon" aria-hidden="true">03</span>
@@ -265,6 +431,20 @@
             <p lang="en">Design, code and art sit at the same table. We move from idea to playable prototype fast.</p>
           </li>
         </ul>
+
+        <!-- Stüdyonun kendi geliştirdiği araç: WorldBuilder -->
+        <div class="arac">
+          <figure class="arac-gorsel belir">
+            <img src="img/hexafield/worldbuilder.jpg" width="1400" height="801" loading="lazy" alt=""
+                 data-alt-tr="Unity içinde WorldBuilder seviye editörü" data-alt-en="The WorldBuilder level editor inside Unity">
+          </figure>
+          <div class="arac-metin belir">
+            <p class="num"><span lang="tr">Araçlar</span><span lang="en">Tools</span></p>
+            <h3><span lang="tr">Kendi araçlarımızı yazıyoruz</span><span lang="en">We build our own tools</span></h3>
+            <p lang="tr">Hexafield'ın hex dünyası, Unity içinde kendi geliştirdiğimiz WorldBuilder editörüyle inşa ediliyor. Hex karoları, botları ve yapıları oyunun içinden yerleştirip anında test ediyoruz.</p>
+            <p lang="en">Hexafield's hex world is built with WorldBuilder, a level editor we made inside Unity. We place hex tiles, bots and structures from within the game and test them instantly.</p>
+          </div>
+        </div>
 
         <h3 class="altbaslik belir"><span lang="tr">Ekip</span><span lang="en">Team</span></h3>
 
@@ -303,13 +483,13 @@
     </section>
 
 
-    <!--═══════════════  03 · İLETİŞİM  ═══════════════-->
+    <!--═══════════════  04 · İLETİŞİM  ═══════════════-->
     <section class="bolum iletisim" id="iletisim">
       <div class="kap belir">
-        <p class="num"><span lang="tr">03 · İletişim</span><span lang="en">03 · Contact</span></p>
+        <p class="num"><span lang="tr">04 · İletişim</span><span lang="en">04 · Contact</span></p>
         <h2><span lang="tr">Bize ulaşın</span><span lang="en">Get in touch</span></h2>
-        <p lang="tr">Yayıncılık, yatırım, basın ve iş birliği teklifleriniz için bize yazın. Kapalı teste katılmak isteyen oyuncuları da bekliyoruz.</p>
-        <p lang="en">Write to us about publishing, investment, press or partnerships. Players who want to join the closed test are welcome too.</p>
+        <p lang="tr">Yayıncılık, yatırım, basın ve iş birliği teklifleriniz için bize yazın. Kapalı teste PC ya da mobilde katılmak isteyen oyuncuları da bekliyoruz.</p>
+        <p lang="en">Write to us about publishing, investment, press or partnerships. Players who want to join the closed test on PC or mobile are welcome too.</p>
 
         <a class="eposta" href="mailto:info@zeyondgames.com">info@zeyondgames.com</a>
 
@@ -345,17 +525,17 @@
 
 
   <!--═══════════════  KAPALI TEST PENCERESİ  ═══════════════-->
-  <!-- "Kapalı teste katıl" düğmesi açar (js/main.js) -->
+  <!-- "Kapalı teste katıl" düğmeleri açar (js/main.js) -->
   <dialog class="pencere" id="testPencere" aria-labelledby="testBaslik">
     <button class="pencere-kapat" type="button" data-kapat data-label-tr="Kapat" data-label-en="Close"></button>
-    <p class="num"><span lang="tr">ANDROID · Google Play kapalı test</span><span lang="en">Android · Google Play closed test</span></p>
+    <p class="num"><span lang="tr">PC · ANDROID · Kapalı alfa</span><span lang="en">PC · Android · Closed alpha</span></p>
     <h3 id="testBaslik"><span lang="tr">Oyunu denemek için önce bize yazın</span><span lang="en">Write to us first to try the game</span></h3>
-    <p lang="tr">Hexafield şu anda Google Play'de kapalı test aşamasında ve yalnızca Android cihazlarda oynanabiliyor. iOS ve Steam sürümleri henüz hazır değil.</p>
-    <p lang="en">Hexafield is currently in closed testing on Google Play and can only be played on Android devices. iOS and Steam versions are not ready yet.</p>
+    <p lang="tr">Hexafield'ın kapalı alfa testlerini PC ve mobilde paralel olarak sürdürüyoruz. Android sürümü Google Play'de kapalı testte; PC testleri için de bize yazabilirsiniz.</p>
+    <p lang="en">We're running Hexafield's closed alpha on PC and mobile in parallel. The Android build is in closed testing on Google Play, and you can write to us about PC testing too.</p>
     <ol class="adimlar">
-      <li><span lang="tr">Google Play hesabınızın e-posta adresini bize gönderin.</span><span lang="en">Send us the email address of your Google Play account.</span></li>
+      <li><span lang="tr">Hangi platformda test etmek istediğinizi yazın. Android için Google Play hesabınızın e-posta adresini de ekleyin.</span><span lang="en">Tell us which platform you'd like to test on. For Android, include the email address of your Google Play account.</span></li>
       <li><span lang="tr">Sizi test kullanıcısı olarak ekleyelim.</span><span lang="en">We'll add you as a tester.</span></li>
-      <li><span lang="tr">Kapalı test bağlantısından oyunu indirip oynayın.</span><span lang="en">Download the game from the closed test link and play.</span></li>
+      <li><span lang="tr">Test bağlantısından oyunu indirip oynayın.</span><span lang="en">Download the game from the test link and play.</span></li>
     </ol>
     <a class="pencere-eposta" href="mailto:info@zeyondgames.com?subject=Hexafield%20closed%20test">info@zeyondgames.com</a>
     <div class="eylemler">

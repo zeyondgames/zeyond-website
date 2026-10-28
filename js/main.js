@@ -1,6 +1,6 @@
 /*  Zeyond Games · sayfa davranışları
-    Dil (TR / EN), mobil menü, aktif bölüm, kaydırınca belirme, kapalı test
-    penceresi. Sayfa bu dosya olmadan da okunur;
+    Dil (TR / EN), mobil menü, aktif bölüm, kaydırınca belirme, giriş
+    videosu, kapalı test penceresi. Sayfa bu dosya olmadan da okunur;
     yalnızca bu küçük etkileşimler eksik kalır. */
 
 (function () {
@@ -16,12 +16,12 @@
 
   var basliklar = {
     tr: {
-      title: "Zeyond Games · Bağımsız Oyun Stüdyosu",
-      description: "Zeyond Games, sistem odaklı taktik aksiyon oyunları geliştiren bağımsız bir oyun stüdyosu. Şu an kapalı testte: Hexafield."
+      title: "Hexafield · Souls-lite Robot Shooter · Zeyond Games",
+      description: "Hexafield, robotların hüküm sürdüğü hex ızgaralı bir açık dünyada geçen souls-lite bir aksiyon RPG shooter. Önce Steam'de, ardından konsollarda. Zeyond Games yapımı."
     },
     en: {
-      title: "Zeyond Games · Video Game Studio",
-      description: "Zeyond Games is an independent video game studio building systems-driven tactical action games. Now in closed test: Hexafield."
+      title: "Hexafield · Souls-lite Robot Shooter · Zeyond Games",
+      description: "Hexafield is a souls-lite action RPG shooter set in an open hex-grid world ruled by robots. Coming first to Steam, then to consoles. Made by Zeyond Games."
     }
   };
 
@@ -111,6 +111,16 @@
     belirenler.forEach(function (el) { belirGozcu.observe(el); });
   } else {
     belirenler.forEach(function (el) { el.classList.add("gorundu"); });
+  }
+
+  /*──────────  GİRİŞ VİDEOSU  ──────────*/
+  /* İşletim sisteminde "hareketi azalt" açıksa fragman oynamaz; yerinde
+     poster görseli durur. Video henüz eklenmediyse bir şey yapmaz. */
+
+  var fragman = document.querySelector(".giris-medya video");
+  if (fragman && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    fragman.removeAttribute("autoplay");
+    fragman.pause();
   }
 
   /*──────────  KAPALI TEST PENCERESİ  ──────────*/
