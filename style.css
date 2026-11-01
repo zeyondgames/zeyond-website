@@ -836,7 +836,7 @@ h2::after {
   stroke-linejoin: round;
 }
 
-/* Görsel + metin blokları: sınıflar, ekonomi, cihazlar, WorldBuilder.
+/* Görsel + metin blokları: ekonomi, cihazlar, WorldBuilder (sınıflar görselsiz).
    Görsel solda, metin sağda; --ters ile yer değiştirirler. */
 .arac {
   display: grid;
@@ -848,12 +848,6 @@ h2::after {
   border: 1px solid var(--line);
   padding: 6px;
   background: var(--yuzey);
-}
-/* Küçük görsel (sınıf ekranı): ekran büyüse de bu genişliği geçmez */
-.arac-gorsel--kucuk {
-  width: 100%;
-  max-width: 22rem;
-  justify-self: center;
 }
 .arac-metin h3 {
   margin: .9rem 0 1rem;
@@ -870,11 +864,8 @@ h2::after {
   /* Ters düzen: metin solda, görsel sağda */
   .arac--ters { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .arac--ters > :first-child { order: 2; }
-}
-/* Küçük görselli blok (sınıflar) daha dar ekranlarda da yan yana kalır */
-@media (min-width: 700px) {
-  .arac--kucuk { grid-template-columns: minmax(0, 1fr) minmax(0, 22rem); gap: 3rem; }
-  .arac--kucuk > :first-child { order: 2; }
+  /* Görselsiz blok (sınıflar): tek sütun, okunur genişlikte */
+  .arac--tek { grid-template-columns: minmax(0, 48rem); }
 }
 
 /* Ekonomi: iki katman kartı. İkincisinde Base lift'ler arasında azalan
