@@ -1,6 +1,5 @@
 /*  Zeyond Games · sayfa davranışları
-    Dil (TR / EN), mobil menü, aktif bölüm, kaydırınca belirme, giriş
-    videosu, kapalı test penceresi. Sayfa bu dosya olmadan da okunur;
+    Dil (TR / EN), mobil menü, aktif bölüm, kapalı test penceresi. Sayfa bu dosya olmadan da okunur;
     yalnızca bu küçük etkileşimler eksik kalır. */
 
 (function () {
@@ -16,12 +15,12 @@
 
   var basliklar = {
     tr: {
-      title: "Hexafield · Souls-lite Robot Shooter · Zeyond Games",
-      description: "Hexafield, robotların hüküm sürdüğü hex ızgaralı bir açık dünyada geçen souls-lite bir aksiyon RPG shooter. Önce Steam'de, ardından konsollarda. Zeyond Games yapımı."
+      title: "Hexafield · Zeyond Games",
+      description: "Zeyond Games küçük, bağımsız bir oyun stüdyosu. Hexafield adında izometrik bir shooter geliştiriyoruz."
     },
     en: {
-      title: "Hexafield · Souls-lite Robot Shooter · Zeyond Games",
-      description: "Hexafield is a souls-lite action RPG shooter set in an open hex-grid world ruled by robots. Coming first to Steam, then to consoles. Made by Zeyond Games."
+      title: "Hexafield · Zeyond Games",
+      description: "Zeyond Games is a small independent studio. We're making Hexafield, an isometric shooter."
     }
   };
 
@@ -87,40 +86,6 @@
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
     document.querySelectorAll("#giris, .bolum").forEach(function (b) { bolumGozcu.observe(b); });
-  }
-
-  /*──────────  KAYDIRINCA BELİRME  ──────────*/
-  /* Aynı kaptaki öğeler sırayla, 90 ms arayla belirir (--sira) */
-
-  var belirenler = document.querySelectorAll(".belir");
-  if ("IntersectionObserver" in window) {
-    belirenler.forEach(function (el) {
-      var kardesler = Array.prototype.filter.call(el.parentElement.children, function (k) {
-        return k.classList.contains("belir");
-      });
-      el.style.setProperty("--sira", kardesler.indexOf(el));
-    });
-    var belirGozcu = new IntersectionObserver(function (girdiler) {
-      girdiler.forEach(function (g) {
-        if (g.isIntersecting) {
-          g.target.classList.add("gorundu");
-          belirGozcu.unobserve(g.target);
-        }
-      });
-    }, { rootMargin: "0px 0px -8% 0px" });
-    belirenler.forEach(function (el) { belirGozcu.observe(el); });
-  } else {
-    belirenler.forEach(function (el) { el.classList.add("gorundu"); });
-  }
-
-  /*──────────  GİRİŞ VİDEOSU  ──────────*/
-  /* İşletim sisteminde "hareketi azalt" açıksa fragman oynamaz; yerinde
-     poster görseli durur. Video henüz eklenmediyse bir şey yapmaz. */
-
-  var fragman = document.querySelector(".giris-medya video");
-  if (fragman && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    fragman.removeAttribute("autoplay");
-    fragman.pause();
   }
 
   /*──────────  KAPALI TEST PENCERESİ  ──────────*/
