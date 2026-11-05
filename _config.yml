@@ -10,6 +10,10 @@ lang: en
 markdown: kramdown
 permalink: /devlog/:title/
 
+# Saati henüz gelmemiş yazıları da yayınla. Yoksa push anından ileri
+# tarihli bir yazı, site yeniden kurulana kadar görünmez.
+future: true
+
 # Yazılar varsayılan olarak "yazi" şablonunu kullanır
 defaults:
   - scope:
